@@ -5,6 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light only">
 <meta name="theme-color" content="#FDFAF3">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1518854639644589');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1518854639644589&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <title>Beginners to Wealth Creation — Divine Jackson</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap');
@@ -631,6 +649,18 @@
   const SELAR_LINK = "https://selar.co/YOUR-LINK-HERE";
   document.getElementById('main-buy-btn').href = SELAR_LINK;
   document.getElementById('sticky-buy-btn').href = SELAR_LINK;
+
+  // Track buy button clicks as a Lead event for Meta Ads
+  function trackBuyClick(){
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead');
+    }
+  }
+  document.getElementById('main-buy-btn').addEventListener('click', trackBuyClick);
+  document.getElementById('sticky-buy-btn').addEventListener('click', trackBuyClick);
+  document.querySelectorAll('.cta-btn').forEach(function(btn){
+    btn.addEventListener('click', trackBuyClick);
+  });
 </script>
 
 </body>
